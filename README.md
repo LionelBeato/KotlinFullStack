@@ -2,7 +2,7 @@
 
 Project that shows proficiency in Kotlin backend coding and Angular frontend. Kotlin code is generating a RESTful api that gets consumed by the angular frontend.
 
-#FAQ
+# FAQ
 
 **Q: How do I run it?** 
 
