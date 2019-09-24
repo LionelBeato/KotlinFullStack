@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository
 
 interface FruitRepository: CrudRepository<Fruit, Long> {
     fun findFruitByName(name: String): List<Fruit>
+    fun findFruitById(id: Long): Fruit
 }

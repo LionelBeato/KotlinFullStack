@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class FruitsService {
 
-apiUrl:string = 'http://localhost:8080/';
+apiUrl:string = 'http://localhost:8080/fruits';
 
 
   constructor(private http: HttpClient) {
@@ -17,6 +17,10 @@ apiUrl:string = 'http://localhost:8080/';
 
   getAll(): Observable<any> {
     return this.http.get(this.apiUrl);
+  }
+
+  getFruit(id): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}`);
   }
 
 

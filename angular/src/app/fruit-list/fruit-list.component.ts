@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FruitsService} from '../fruits.service'
+import { FruitsService} from '../fruits.service';
+import { DragDrop} from '@angular/cdk/drag-drop';
+
 
 @Component({
   selector: 'app-fruit-list',
@@ -8,17 +10,17 @@ import { FruitsService} from '../fruits.service'
 })
 export class FruitListComponent implements OnInit {
 
-  fruits:Array<any>;
+  fruits: Array<any>;
 
   constructor(private fruitsservice: FruitsService) {
   }
 
-  
+
   ngOnInit() {
     this.fruitsservice.getAll().subscribe(data => {
       this.fruits = data;
       console.log(data);
     }, error => console.error(error));
   }
-  
+
   }
