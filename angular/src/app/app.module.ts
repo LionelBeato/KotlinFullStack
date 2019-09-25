@@ -11,6 +11,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HttpClientModule,
     DragDropModule,
     AppRoutingModule
-  ],
+   ],
   providers: [FruitsService],
   bootstrap: [AppComponent]
 })
