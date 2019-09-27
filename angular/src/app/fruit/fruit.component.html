@@ -1,21 +1,19 @@
 <p>fruit works!</p>
 
 <div class="container">
-  <div class="row">
-    <div class="col">Hello</div>
-    <div class="col">Hello</div>
-
-  </div>
-  <div class="row">
-    Hello
-  </div>
 
 
-<div *ngFor="let i of arr">
-<b>{{fruit?.name}}</b>
-
-do something
+<div class="card-deck">
+    <div class="card" style="width: 18em;" *ngFor="let i of arr">
+        <img class="card-img-top" src="https://images.unsplash.com/photo-1569327974377-79e2c62ea01b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{fruit.name}}</h5>
+          <p >Quick sample text to create the card title and make up the body of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
 </div>
+
 </div>
 
 

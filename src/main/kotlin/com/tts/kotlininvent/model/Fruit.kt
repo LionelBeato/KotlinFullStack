@@ -8,13 +8,13 @@ import javax.persistence.Id
 
 //This annotation allows this object to be treated as a discreet entity in a database
 @Entity
-class Fruit (
-    var name: String = "",
-    var quantity: Long = 0,
+data class Fruit(
+        var name: String = "",
+        var quantity: String = "",
 
     //these annotations are for assigning and generating IDs
-    @Id @GeneratedValue (strategy = GenerationType.AUTO)
-    var id: Long = 0
+        @Id @GeneratedValue (strategy = GenerationType.AUTO)
+        var id: Long = 0
 
 
 

@@ -14,9 +14,9 @@ class KotlininventApplication{
     //code that resolves at runtime that adds items to the repository
     @Bean
     fun init(repository: FruitRepository) = CommandLineRunner {
-        repository.save(Fruit("apples", 5))
-        repository.save(Fruit("mangoes", 2))
-        repository.save(Fruit("pears", 3))
+        repository.save(Fruit("apples", "5"))
+        repository.save(Fruit("mangoes", "2"))
+        repository.save(Fruit("pears", "3"))
 
 
     }

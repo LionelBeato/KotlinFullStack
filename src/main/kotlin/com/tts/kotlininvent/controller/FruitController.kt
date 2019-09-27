@@ -2,24 +2,34 @@ package com.tts.kotlininvent.controller
 
 import com.tts.kotlininvent.model.Fruit
 import com.tts.kotlininvent.repo.FruitRepository
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.MediaType
+import org.springframework.web.bind.annotation.*
 
 @RestController
+@RequestMapping("/fruits")
 class FruitController (val repository: FruitRepository){
 
-    @GetMapping("/fruits")
+    @GetMapping("/all")
     fun findAll(): Iterable<Fruit> = repository.findAll();
 
-    @GetMapping("/{name}")
-    fun findFruitByName(@PathVariable name: String)
-    =  repository.findFruitByName(name)
+//    @GetMapping("/{name}")
+//    fun findFruitByName(@PathVariable name: String)
+//    =  repository.findByName(name)
 
-    @GetMapping("/fruits/{id}")
+    @GetMapping("/{id}")
     fun findFruitById(@PathVariable id: Long)
-    = repository.findFruitById(id)
+    = repository.findById(id)
 
+    @DeleteMapping("/delete/{id}")
+    fun deleteFruitById(@PathVariable id: Long)
+    = repository.deleteById(id)
+
+    @PutMapping("/put/{id}")
+    fun updateFruit (@PathVariable id: Long, @RequestBody fruit: Fruit)
+    = repository.save(fruit)
+
+    @PostMapping("/post")
+    fun addFruit (@RequestBody fruit: Fruit)
+    = repository.save(fruit)
 
 }
