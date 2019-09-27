@@ -11,7 +11,7 @@ import { DragDrop} from '@angular/cdk/drag-drop';
 })
 export class FruitListComponent implements OnInit {
 
-  fruits:Fruit[];
+  fruits: Array<Fruit>;
 
   constructor(private fruitsservice: FruitsService) {
   }
@@ -19,12 +19,12 @@ export class FruitListComponent implements OnInit {
 
   ngOnInit() {
     this.fruitsservice.getAll().subscribe(data => {
-      this.fruits = data;
+      this.fruits = data._embedded.fruits;
       console.log(data);
     }, error => console.error(error));
   }
 
-  add(name:string, quantity:number): void {
+  add(name: string, quantity: number): void {
     name = name.trim();
     if (!name) { return; }
     this.fruitsservice.postFruit({ name, quantity } as Fruit)

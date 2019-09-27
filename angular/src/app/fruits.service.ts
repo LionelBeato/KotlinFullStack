@@ -8,7 +8,7 @@ import { HttpHeaders } from '@angular/common/http';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
+    Authorization: 'my-auth-token'
   })
 };
 
@@ -20,7 +20,7 @@ const httpOptions = {
 
 export class FruitsService {
 
-  
+
 
 apiUrl = 'http://localhost:8080/fruits';
 
@@ -37,11 +37,11 @@ apiUrl = 'http://localhost:8080/fruits';
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
-  postFruit(fruit:Fruit): Observable<any> {
-    return this.http.post<Fruit>(`post/${this.apiUrl}`, fruit, httpOptions);
+  postFruit(fruit: Fruit): Observable<any> {
+    return this.http.post<Fruit>(`${this.apiUrl}/post`, fruit, httpOptions);
   }
 
-  
+
 
 
 }
