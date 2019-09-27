@@ -2,13 +2,25 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Fruit } from './fruit/Fruit';
+import { HttpHeaders } from '@angular/common/http';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
+
+
 
 @Injectable({
   providedIn: 'root',
 })
 
-
 export class FruitsService {
+
+  
 
 apiUrl = 'http://localhost:8080/fruits';
 
@@ -25,8 +37,8 @@ apiUrl = 'http://localhost:8080/fruits';
     return this.http.get(`${this.apiUrl}/${id}`);
   }
 
-  putFruit(fruit:Fruit): Observable<any> {
-    return this.http.post(`post/${this.apiUrl}`, );
+  postFruit(fruit:Fruit): Observable<any> {
+    return this.http.post<Fruit>(`post/${this.apiUrl}`, fruit, httpOptions);
   }
 
   

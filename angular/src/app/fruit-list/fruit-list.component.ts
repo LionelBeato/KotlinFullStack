@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FruitsService} from '../fruits.service';
+import { Fruit } from '../fruit//Fruit';
 import { DragDrop} from '@angular/cdk/drag-drop';
 
 
@@ -10,7 +11,7 @@ import { DragDrop} from '@angular/cdk/drag-drop';
 })
 export class FruitListComponent implements OnInit {
 
-  fruits: Array<any>;
+  fruits:Fruit[];
 
   constructor(private fruitsservice: FruitsService) {
   }
@@ -22,5 +23,16 @@ export class FruitListComponent implements OnInit {
       console.log(data);
     }, error => console.error(error));
   }
+
+  add(name:string, quantity:number): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.fruitsservice.postFruit({ name, quantity } as Fruit)
+      .subscribe(fruit => {
+        this.fruits.push(fruit);
+      });
+  }
+
+
 
   }

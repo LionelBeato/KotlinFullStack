@@ -1,4 +1,3 @@
-import { constructor } from 'q';
 
 export class Fruit {
 

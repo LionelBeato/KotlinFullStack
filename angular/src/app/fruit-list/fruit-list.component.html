@@ -1,5 +1,20 @@
 <p>fruit-list works!</p>
 
+
+<!--code to add fruit-->
+
+
+<div>
+    <label>fruit name:
+      <input #fruitName />
+      <input #quantity />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(fruitName.value, quantity.value)">
+      add
+    </button>
+  </div>
+
 <ul>
     <li *ngFor="let fruit of fruits">
             {{fruit.name}}
