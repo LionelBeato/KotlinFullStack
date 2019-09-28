@@ -16,9 +16,4 @@ data class Fruit(
         @Id @GeneratedValue (strategy = GenerationType.AUTO)
         var id: Long = 0
 
-
-
-
-
-
 )
