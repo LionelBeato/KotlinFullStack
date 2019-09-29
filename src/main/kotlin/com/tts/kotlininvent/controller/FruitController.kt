@@ -15,16 +15,20 @@ class FruitController(private val fruitService: FruitService){
             = fruitService.findAll()
 
 
-    @GetMapping("/{id}")
-    fun findFruitById(@PathVariable id: Long)
+    @GetMapping("/id/")
+    fun findFruitById(@RequestParam id: Long)
             = fruitService.findFruitById(id)
+
+    @GetMapping("/name/")
+    fun findFruitByName(@RequestParam name: String)
+            = fruitService.findFruitByName(name)
 
 
     @DeleteMapping("/delete/{id}")
     fun deleteFruitById(@PathVariable id: Long)
             = fruitService.deleteFruitById(id)
 
-
+    //this implementation is somewhat unique for a PUT method; adding the extra logic might be considered a code smell
     @PutMapping("/put/{id}")
     fun updateFruit (@PathVariable id: Long, @RequestBody fruit: Fruit):Fruit{
         fruit.id = id

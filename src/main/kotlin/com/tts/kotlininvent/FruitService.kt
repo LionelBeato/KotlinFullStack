@@ -12,6 +12,9 @@ class FruitService (private val repository: FruitRepository){
     fun findFruitById(id: Long)
             = repository.findById(id)
 
+    fun findFruitByName(name: String)
+            =  repository.findFruitByName(name)
+
     fun deleteFruitById(id: Long)
             = repository.deleteById(id)
 
@@ -20,5 +23,6 @@ class FruitService (private val repository: FruitRepository){
 
     fun addFruit (fruit: Fruit)
             = repository.save(fruit)
+
 
 }
