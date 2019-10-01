@@ -8,6 +8,10 @@ import { FruitsService } from './fruits.service';
 import { FruitListComponent } from './fruit-list/fruit-list.component';
 import { FruitComponent } from './fruit/fruit.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import {FormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatListModule} from '@angular/material/list';
+
 
 
 
@@ -22,8 +26,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     BrowserModule,
     HttpClientModule,
     DragDropModule,
-    AppRoutingModule
-   ],
+    MatListModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule
+  ],
   providers: [FruitsService],
   bootstrap: [AppComponent]
 })

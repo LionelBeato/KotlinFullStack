@@ -15,8 +15,11 @@
     </button>
   </div>
 
-<ul>
-    <li *ngFor="let fruit of fruits">
-            {{fruit.name}}
-    </li>
-</ul>
+<mat-list>
+    <mat-list-item *ngFor="let fruit of fruits">
+            {{fruit?.name}}
+    </mat-list-item>
+</mat-list>
+
+
+

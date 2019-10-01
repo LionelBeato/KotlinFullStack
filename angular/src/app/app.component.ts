@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FruitListComponent } from './fruit-list/fruit-list.component';
 
 
 @Component({

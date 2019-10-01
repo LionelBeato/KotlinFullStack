@@ -24,8 +24,6 @@ export class FruitsService {
 
 apiUrl = 'http://localhost:8080/fruits';
 
-
-
   constructor(private http: HttpClient) {
   }
 
@@ -41,7 +39,12 @@ apiUrl = 'http://localhost:8080/fruits';
     return this.http.post<Fruit>(`${this.apiUrl}/post`, fruit, httpOptions);
   }
 
+  deleteFruit(id): Observable<any> {
+    return this.http.delete<Fruit>(`${this.apiUrl}/${id}/delete`, httpOptions);
+  }
 
-
+  putFruit(fruit: Fruit, id): Observable<any> {
+    return this.http.put<Fruit>(`${this.apiUrl}/put/${id}`, fruit, httpOptions);
+  }
 
 }

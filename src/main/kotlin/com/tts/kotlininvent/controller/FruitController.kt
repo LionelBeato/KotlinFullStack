@@ -15,8 +15,8 @@ class FruitController(private val fruitService: FruitService){
             = fruitService.findAll()
 
 
-    @GetMapping("/id/")
-    fun findFruitById(@RequestParam id: Long)
+    @GetMapping("/{id}")
+    fun findFruitById(@PathVariable id: Long)
             = fruitService.findFruitById(id)
 
     @GetMapping("/name/")
@@ -24,7 +24,7 @@ class FruitController(private val fruitService: FruitService){
             = fruitService.findFruitByName(name)
 
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}/delete")
     fun deleteFruitById(@PathVariable id: Long)
             = fruitService.deleteFruitById(id)
 

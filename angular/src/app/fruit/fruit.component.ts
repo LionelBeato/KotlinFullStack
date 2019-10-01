@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FruitsService} from '../fruits.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Fruit} from './Fruit';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-fruit',
@@ -15,13 +16,16 @@ export class FruitComponent implements OnInit {
 
 
   fruit: Fruit;
-   arr: number[];
+  arr: number[];
+  location: any;
 
 
+  constructor(private fruitsservice: FruitsService, private route: ActivatedRoute, private router: Router,
 
-constructor(private fruitsservice: FruitsService, private route: ActivatedRoute) {
+) {
   }
-ngOnInit() {
+
+  ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.fruitsservice.getFruit(params.get('id')).subscribe(data => {
         this.fruit = data;
@@ -33,6 +37,25 @@ ngOnInit() {
 
   }
 
+  save(): void {
+    this.route.paramMap.subscribe(params => {
+      this.fruitsservice
+        .putFruit(this.fruit, params.get('id'))
+        .subscribe(() => this.goBack());
+    });
+  }
 
+  goBack(): void {
+    this.location.back();
+  }
 
+  delete(id) {
+    this.fruitsservice.deleteFruit(id)
+      .subscribe((data) => {
+        console.log(this.fruit);
+        this.router.navigate(['/fruit-list']);
+      });
+  }
 }
+
+
