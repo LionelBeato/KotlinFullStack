@@ -32,7 +32,7 @@ apiUrl = 'http://localhost:8080/fruits';
   dataSource = [];
 
   getAll(): Observable<any> {
-    return this.http.get(this.apiUrl);
+    return this.http.get(`${this.apiUrl}/all`);
   }
 
   getFruit(id): Observable<any> {

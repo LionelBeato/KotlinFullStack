@@ -36,18 +36,20 @@ export class FruitListComponent implements OnInit {
 
 
   fruits: Array<Fruit>;
+  dataSource: any;
 
 
   constructor(private fruitsservice: FruitsService, private router: Router) {
   }
 
 
-  displayedColumns: string[] = ['name', 'quality'];
+  displayedColumns: string[] = ['id', 'name', 'quality'];
 
 
   ngOnInit() {
     this.fruitsservice.getAll().subscribe(data => {
-      this.fruits = data._embedded.fruits;
+      this.fruits = data;
+      this.dataSource = data;
       console.log(data);
     }, error => console.error(error));
   }
@@ -60,6 +62,7 @@ export class FruitListComponent implements OnInit {
     this.fruitsservice.postFruit({name, quantity} as Fruit)
       .subscribe(fruit => {
         this.fruits.push(fruit);
+        this.dataSource = [...this.fruits];
       });
   }
 
