@@ -56,7 +56,7 @@ export class FruitListComponent implements OnInit {
   delete(id) {
     this.fruitsservice.deleteFruit(id).subscribe(() => {
       console.log('deleted fruit');
-      this.refresh();
+      this.ngOnInit();
   });
   }
 
@@ -68,8 +68,6 @@ export class FruitListComponent implements OnInit {
       console.log(data);
     }, error => console.error(error));
   }
-
-
 
 
 
