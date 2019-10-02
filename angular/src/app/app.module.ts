@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from "@angular/material/table";
 import {CdkTableModule} from "@angular/cdk/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 
@@ -33,7 +34,8 @@ import {CdkTableModule} from "@angular/cdk/table";
     FormsModule,
     BrowserAnimationsModule,
     MatTableModule,
-    CdkTableModule
+    CdkTableModule,
+    MatPaginatorModule
   ],
   providers: [FruitsService],
   bootstrap: [AppComponent]
