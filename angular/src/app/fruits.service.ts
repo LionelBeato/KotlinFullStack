@@ -19,13 +19,17 @@ const httpOptions = {
 })
 
 export class FruitsService {
+  private fruits: Array<Fruit>;
+
+  constructor(private http: HttpClient) {
+  }
 
 
 
 apiUrl = 'http://localhost:8080/fruits';
 
-  constructor(private http: HttpClient) {
-  }
+  displayedColumns: string[] = ['name', 'quantity'];
+  dataSource = [];
 
   getAll(): Observable<any> {
     return this.http.get(this.apiUrl);
@@ -46,5 +50,11 @@ apiUrl = 'http://localhost:8080/fruits';
   putFruit(fruit: Fruit, id): Observable<any> {
     return this.http.put<Fruit>(`${this.apiUrl}/put/${id}`, fruit, httpOptions);
   }
+
+
+
+
+
+
 
 }
