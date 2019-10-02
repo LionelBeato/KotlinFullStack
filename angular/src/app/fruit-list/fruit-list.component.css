@@ -2,7 +2,12 @@ table {
   width:100%;
 }
 
-.table-div{
+.tablediv{
   width: 75%;
   margin:auto;
+}
+
+
+.mat-form-field{
+  margin:30px;
 }

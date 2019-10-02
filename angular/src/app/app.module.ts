@@ -14,6 +14,12 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from "@angular/material/table";
 import {CdkTableModule} from "@angular/cdk/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatSelectModule} from "@angular/material/select";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 
 
@@ -32,10 +38,16 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatListModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
     BrowserAnimationsModule,
     MatTableModule,
     CdkTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [FruitsService],
   bootstrap: [AppComponent]
