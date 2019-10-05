@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { DragDrop} from '@angular/cdk/drag-drop';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class FruitListComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'quality', 'action'];
 
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
 
   ngOnInit() {
